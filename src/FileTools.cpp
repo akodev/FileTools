@@ -1,6 +1,8 @@
 #include "FileTools.h"
 #include "libs/Exceptions/Exceptions.h"
 
+#include <string.h>
+
 const std::string WORKING_MODE_WORDS = "words";
 const std::string WORKING_MODE_CHECKSUM = "checksum";
 
@@ -21,7 +23,7 @@ void CFileToolsApp::PrintHelpMessage()
 				"Abilities: \n"
 				"\t- Count occurrences of the word in file. \n"
 				"\t- Calculate checksum for file (checksum = word32_1 + word32_2 + ... + word32_N \n"
-				
+
 				"Usage:\n"
 				"\tCount words:   FileTools -f <file> -m words -v <word>\n"
 				"\tGet checksum:  FileTools -f <file> -m checksum -v <word>\n"
@@ -90,7 +92,7 @@ bool CFileToolsApp::GetWordFromStream( std::istream& iStream, std::string& word 
 
 	while (iStream.good()) {
 		char sym = iStream.get();
-		if (!std::isalnum(sym, iStream.getloc())) { 
+		if (!std::isalnum(sym, iStream.getloc())) {
 			break;
 		}
 		word+=sym;

@@ -14,8 +14,6 @@ public:
 
 	bool Init(int argc, char* argv[]);
 
-	bool Init(); // try to find current process arguments
-
 	void Clear();
 
 	bool CheckParam(const char* paramName) const;

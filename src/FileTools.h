@@ -1,6 +1,5 @@
 #pragma once
 #include <stdio.h>
-#include <tchar.h>
 
 #include "libs/CommandLineParser/CommandLineParser.h"
 

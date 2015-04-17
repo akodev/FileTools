@@ -7,7 +7,6 @@
 #include "../DebugLogger/debug_logger.h"
 
 #include "stdlib.h"
-#include "tchar.h"
 
 using namespace std;
 
@@ -32,15 +31,8 @@ bool CCommandLineParser::Init( int argc,char* argv[] )
 	}
 
 	UpdateArgPointersVector();
-	
+
 	return true;
-}
-
-
-bool CCommandLineParser::Init()
-{
-	DEBUG_LOGGER_DECLARE
-	return Init(__argc, __argv);
 }
 
 void CCommandLineParser::Clear()
@@ -62,7 +54,7 @@ bool CCommandLineParser::GetParamValue( const char* paramName, string &retValue 
 	DEBUG_LOGGER_DECLARE
 	std::list<std::string>::const_iterator it;
 	if ( FindParam(paramName, it) ) {
-		++it; 
+		++it;
 		if (it != m_params.end()) {
 			retValue = *it;
 		} else return false;
@@ -77,7 +69,7 @@ bool CCommandLineParser::FindParam( const char* paramName, std::list<std::string
 	it = find(m_params.begin(),m_params.end(),paramName);
 	if (it != m_params.end())
 		return true;
-	else 
+	else
 		return false;
 }
 
@@ -85,8 +77,8 @@ void CCommandLineParser::UpdateArgPointersVector()
 {
 	DEBUG_LOGGER_DECLARE
 	m_argPointersVector.resize(0);
-	
-	for (auto it = m_params.begin(); it != m_params.end(); ++it) {
+
+	for (std::list<std::string>::iterator it = m_params.begin(); it != m_params.end(); ++it) {
 		m_argPointersVector.push_back((char*)it->c_str());
 	}
 }
@@ -96,7 +88,7 @@ void CCommandLineParser::AddParam( const char* paramName, const char* paramValue
 	DEBUG_LOGGER_DECLARE
 	m_params.push_back(paramName);
 	m_argPointersVector.push_back((char*)m_params.back().c_str());
-	
+
 	if (paramValue) {
 		m_params.push_back(paramValue);
 		m_argPointersVector.push_back((char*)m_params.back().c_str());
@@ -108,7 +100,7 @@ void CCommandLineParser::AddParamsFromString( const char* paramsString )
 	DEBUG_LOGGER_DECLARE
 	string paramsLine(paramsString);
 	string paramsElement;
-	
+
 	size_t i = 0;
 	while(i < paramsLine.length()) {
 		if (paramsLine[i] == L' ') { /* skip spaces */
@@ -118,9 +110,9 @@ void CCommandLineParser::AddParamsFromString( const char* paramsString )
 
 		if (paramsLine[i] == L'"' || paramsLine[i] == L'\'') { /* get element enclosed in double or single quotes */
 			size_t beg = i+1;
-			char quotesSymbol = paramsLine[i]; 
+			char quotesSymbol = paramsLine[i];
 			i = paramsLine.find(quotesSymbol, beg); /* find closing quotes */
-			
+
 			if (i == string::npos) {
 				EXCEPTION_THROW_MESSAGE("Closing single or double quotes is not found in the parameter string.");
 			}
@@ -188,7 +180,7 @@ std::string CCommandLineParser::GetExecutableName() const
 			exeName = exeName.substr(pos+1);
 		}
 	}
-	
+
 	return exeName;
 }
 

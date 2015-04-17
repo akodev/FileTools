@@ -1,6 +1,6 @@
 #pragma once
 
-/* Simple command line parser. Works with space separated arguments passed to application. UNICODE ready.*/
+/* Simple command line parser. Works with space separated arguments passed to application. */
 
 #include <string>
 #include <list>

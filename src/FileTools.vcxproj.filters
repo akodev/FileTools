@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{6efc600c-d449-432e-b353-503c3d7fa140}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileTools.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\DebugLogger\debug_logger.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\CommandLineParser\CommandLineParser.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\Exceptions\Exceptions.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libs\DebugLogger\debug_logger.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\CommandLineParser\CommandLineParser.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\Exceptions\Exceptions.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="FileTools.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
